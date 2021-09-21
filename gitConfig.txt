@@ -1,0 +1,72 @@
+---Configuracion para conectar gitHub con la terminal--------
+
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ ssh-keygen -t rsa -b 4096 -C "jaimerdz.gja@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/jamesxd/.ssh/id_rsa):
+/home/jamesxd/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/jamesxd/.ssh/id_rsa
+Your public key has been saved in /home/jamesxd/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:A0Y93aYqhU02buIcz8TdCTVV+9bswwhD9NL8wl//+mg jaimerdz.gja@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|      .. . +o....|
+|     .  * + *.  .|
+|      oB + B = . |
+|     .+.B + = ..o|
+|     o OS. o o .*|
+|      + +.  o =oo|
+|       .     . +o|
+|              E.o|
+|             .ooo|
++----[SHA256]----
+
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ eval "$(ssh-agent -s)"
+Agent pid 1436
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ cd ~/.ssh
+jamesxd@DESKTOP-UOAV0IV:~/.ssh$ ls
+id_rsa  id_rsa.pub
+jamesxd@DESKTOP-UOAV0IV:~/.ssh$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDSUWQ256aNEv1AeDeay4WsSx0Z/2NGb/1dM9LjZxWg0a2gy7DCbqIAxkntOTLP3/frIYVTCnOeX18OgL1AV2P9YKyCFTTR18b4aT5QwaWTJbqn4zj/OLNY9KsaeiEBEhXVzk8U28RODK4wBRdBtdNauy3aha+rJ7UdiY4sNieesI9TJ9pxWK02nobISb5Y6NqI0GM2aGHB00gbsTOSLXDVgcZno3UCMqfSfCk036t9k5+A6r/x15jIry5/wj3NcUJZgNwmHZCtg0h95i1iK1pu3WHLwWRBxGrKTnmfUOvj5Bv/Q6i8kkrYEc7MpyGifVp0bkXeU2SiNny8qWiDUY7tyGlU/Ak7d6Qs5lv+/Ub/R/S6vj1lKtnTWC3HuBoL+7fTGR+FS/nmJXTGhuD+KCl8m3hLl4nEFpFPiRiMABGSaPzOCXH6qLu3iohJvHvLYAMAPbj8/+lYYC8PNRtoNGMkOM/laiOnHYUYQpPyQsquOL5oDn5Ud3M1uEFG7vykr/Sg7zYwXCQ/yMCGYxUfpnXDMXKNRw7qQLAeXV4/GTE59VEsRbGZ24wVQL9HomUICyEs454MqM6ANm3V2ALBfaIzxLKL68v4HxSWhaDHQdb/PUQWPVYa+VLv3XNitwASeRKmSDQMscudse$
+
+Una ves hecho lo anterior ir a gitHub y crear un nuevo repositorio, situarse en el directorio donde se guardaran los archivos del repositorio y usar:
+echo "# NOMBRE DEL REPOSITORIO" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Jamesrdx/gitTests.git
+git push -u origin maini
+
+Nota : la linea de comandos anterior puede ser copiada directamente de la pagina de github al momento de crear un repositorio
+
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ echo "# gitTests" >> README.md
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ git init
+Initialized empty Git repository in /home/jamesxd/devProjects/gitTests/.git/
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ git add README.md
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ git commit -m "first commit"
+[master (root-commit) 05adc6d] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ git branch -M main
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ git remote add origin https://github.com/Jamesrdx/gitTests.git
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ git push -u origin main
+Username for 'https://github.com': jamesrdx
+Password for 'https://jamesrdx@github.com':
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/Jamesrdx/gitTests.git/'
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$ git push -u origin main
+Username for 'https://github.com': jamesrdx
+Password for 'https://jamesrdx@github.com':
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 227 bytes | 227.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/Jamesrdx/gitTests.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+jamesxd@DESKTOP-UOAV0IV:~/devProjects/gitTests$
